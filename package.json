@@ -1,0 +1,23 @@
+{
+  "name": "tgpb04t",
+  "version": "1.0.0",
+  "description": "Türk Geliştiriciler Platformu'nun özel Discord Botu\r https://discord.gg/tRZuCYj",
+  "main": "bot.js",
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CanTheCoderBoi/TGPB04T.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CanTheCoderBoi/TGPB04T/issues"
+  },
+  "homepage": "https://github.com/CanTheCoderBoi/TGPB04T#readme"
+}

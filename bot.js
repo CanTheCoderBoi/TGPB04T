@@ -4,6 +4,7 @@ const pref = "?";
 
 client.on("ready", () => {
     console.log("I am up and running!");
+    client.user.setActivity("komutları", {type: "LISTENING"});
 })
 
 client.on("message", async (message) => {
