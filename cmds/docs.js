@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 module.exports.run = (client, message, args) => {
-    let embed = new Discord.RichEmbed();
+    let embed = new discord.RichEmbed();
     embed.setAuthor(message.author.tag, message.author.avatarURL);
     embed.setTimestamp()
     if (args.length == 0) return message.reply("?docs <class> [function/definer] *Büyük/Küçük harfe dikkat ediniz!*")
