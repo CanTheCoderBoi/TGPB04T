@@ -6,12 +6,12 @@ module.exports.run = (client, message, args) => {
     if (args.length == 0) return message.reply("?docs <class> [function/definer] *Büyük/Küçük harfe dikkat ediniz!*")
     if(args.length>1) {
         embed.setTitle(`${args[0]}.${args[1]} hakkında bilgi:`)
-        embed.setDescription(`[https://discord.js.org/#/docs/main/stable/class/${args[0]}?scrollTo=${args[1]}]<Tıkla>`)
+        embed.setDescription(`[Tıkla](https://discord.js.org/#/docs/main/stable/class/${args[0]}?scrollTo=${args[1]})`)
         embed.setImage("https://discord.js.org/static/logo-square.png")
         embed.setFooter("Eğer sayfa boş ise Büyük/Küçük harfe dikkat ederek tekrar yazınız.")
     } else {
         embed.setTitle(`${args[0]} hakkında bilgi:`)
-        embed.setDescription(`[https://discord.js.org/#/docs/main/stable/class/${args[0]}]<Tıkla>`)
+        embed.setDescription(`[Tıkla](https://discord.js.org/#/docs/main/stable/class/${args[0]})`)
         embed.setImage("https://discord.js.org/static/logo-square.png")
         embed.setFooter("Eğer sayfa boş ise Büyük/Küçük harfe dikkat ederek tekrar yazınız.")
         return message.channel.send(embed)
