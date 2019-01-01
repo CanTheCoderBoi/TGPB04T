@@ -11,7 +11,7 @@ module.exports.run = (client, message, args) => {
     if(args.length>0){
     let helparg = args[1]
     if(helparg === "class") {
-        message.channel.send("That works");
+        message.channel.send("That works beep boop");
         
     
     }
