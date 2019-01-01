@@ -3,7 +3,7 @@ module.exports.run = (client, message, args) => {
     if (args.length == 0) {
     let helpembed = new discord.RichEmbed();
     helpembed.setAuthor(message.author.tag, message.author.avatarURL);
-    helpembed.addField("<help class","Class bilgisini gösterir")
+    helpembed.addField("?help class","Class bilgisini gösterir")
     helpembed.setThumbnail("https://discord.js.org/static/logo-square.png")
     helpembed.setFooter("Komutlar ile ilgili daha fazla bilgi almak için belirtilen komudu giriniz")
     helpembed.setColor(0xFF8000)    
