@@ -6,6 +6,7 @@ module.exports.run = (client, message, args) => {
     helpembed.addField("<help class","Class bilgisini gösterir")
     helpembed.setThumbnail("https://discord.js.org/static/logo-square.png")
     helpembed.setFooter("Komutlar ile ilgili daha fazla bilgi almak için belirtilen komudu giriniz")
+    helpembed.setColor(#ccff66)
     message.channel.send(helpembed)
     }
     if(args.length>0){
@@ -17,6 +18,7 @@ module.exports.run = (client, message, args) => {
         classembed.setTitle("Class komutları: ")
         classembed.setDescription("Attachment  CategoryChannel  Channel  Client  ClientUser  ClientUserChannelOverride  ClientUserGuildSettings  ClientUserSettings  Collection  Collector  DiscordAPIError  DMChannel  Emoji  EvaluatedPermissions  Game  GroupDMChannel  Guild  GuildAuditLogs  GuildAuditLogsEntry  GuildChannel  GuildMember  Invite  Message  MessageAttachment  MessageCollector  MessageEmbed  MessageEmbedAuthor  MessageEmbedField  MessageEmbedFooter  MessageEmbedImage  MessageEmbedProvider  MessageEmbedThumbnail  MessageEmbedVideo  MessageMentions  MessageReaction  OAuth2Application  PartialGuild  PartialGuildChannel  PermissionOverwrites  Permissions  Presence  ReactionCollector  ReactionEmoji  RichEmbed  RichPresenceAssets  Role  Shard  ShardClientUtil  ShardingManager  SnowflakeUtil  StreamDispatcher  TextChannel  User  UserConnection  UserProfile  Util  VoiceBroadcast  VoiceChannel  VoiceConnection  VoiceReceiver  VoiceRegion  VolumeInterface  Webhook  WebhookClient  ");
         classembed.setFooter("Komutlar çalışmıyorsa büyük/küçük harf uyumuna dikkat ediniz.")
+        classembed.setColor(0x8000ff)
         message.channel.send(classembed);        
     }
         
