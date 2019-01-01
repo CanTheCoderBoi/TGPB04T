@@ -9,7 +9,7 @@ module.exports.run = (client, message, args) => {
         
         let duyuruembed = new discord.RichEmbed()
         duyuruembed.setDescription(dtext)
-        duyuruembed.setThumbnail(message.author.avatarURL)
+        
         duyuruembed.setColor(0x00FFFF)       
         message.channel.send(duyuruembed);        
         }
