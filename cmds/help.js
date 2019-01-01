@@ -6,7 +6,7 @@ module.exports.run = (client, message, args) => {
     helpembed.addField("<help class","Class bilgisini gösterir")
     helpembed.setThumbnail("https://discord.js.org/static/logo-square.png")
     helpembed.setFooter("Komutlar ile ilgili daha fazla bilgi almak için belirtilen komudu giriniz")
-    helpembed.setColor(#ccff66)
+    helpembed.setColor(0xFF8000)    
     message.channel.send(helpembed)
     }
     if(args.length>0){
