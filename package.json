@@ -4,7 +4,8 @@
   "description": "Türk Geliştiriciler Platformu'nun özel Discord Botu\r https://discord.gg/tRZuCYj",
   "main": "bot.js",
   "dependencies": {
-    "discord.js": "^11.4.2"
+    "discord.js": "^11.4.2",
+    "mongoose": "^5.4.1"
   },
   "devDependencies": {},
   "scripts": {

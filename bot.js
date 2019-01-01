@@ -1,10 +1,12 @@
 const discord = require("discord.js")
+const mongoose = require("mongoose")
 const client = new discord.Client();
 const pref = "?";
 
 client.on("ready", () => {
     console.log("I am up and running!");
     client.user.setActivity("komutları", {type: "LISTENING"});
+    
 })
 
 client.on("message", async (message) => {
@@ -18,3 +20,4 @@ client.on("message", async (message) => {
 })
 
 client.login(process.env.TOKEN)
+mongoose.connect(process.env.URI, { useNewUrlParser: true })
