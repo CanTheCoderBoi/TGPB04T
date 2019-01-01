@@ -14,6 +14,7 @@ module.exports.run = (client, message, args) => {
     if(helparg === "class") {
         let classembed = new Discord.RichEmbed()
         classembed.setAuthor(message.author.tag, message.author.avatarURL);
+        classembed.setTitle("yo")
         classembed.setDescription("hmm");
         classembed.setFooter("Komutlar çalışmıyorsa büyük/küçük harf uyumuna dikkat ediniz.")
         message.channel.send(classembed);        
