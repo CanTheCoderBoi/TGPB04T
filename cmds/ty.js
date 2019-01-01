@@ -7,7 +7,7 @@ module.exports.run = (client, message, args) => {
     
     let member = message.mentions.members.first();
     if (!member || member == message.member) return message.reply("Lütfen teşekkür etmek için birini etiketle ve tekrar dene.").then(msg => {msg.delete(10000)});
-    schemas.userPoints.findOne({ userID: memeber.id }, (err, user) => {
+    schemas.userPoints.findOne({ userID: member.id }, (err, user) => {
         if (!user) {
             let newUser = new schemas.userPoints({ userID: member.id, points: 1})
             newUser.save()
