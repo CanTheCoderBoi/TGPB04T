@@ -1,10 +1,11 @@
 const discord = require("discord.js");
 module.exports.run = (client, message, args) => {
+    if (args.length == 0) {
     let helpembed = new discord.RichEmbed();
     helpembed.setAuthor(message.author.tag, message.author.avatarURL);
-    helpembed.setTitle("Test1")
-    helpembed.addField("Deneme","Deneme")
+    helpembed.addField("<help class","Class bilgisini gösterir")
     helpembed.setThumbnail("https://discord.js.org/static/logo-square.png")
-    helpembed.setFooter("Footer")
+    helpembed.setFooter("Komutlar ile ilgili daha fazla bilgi almak için belirtilen komudu giriniz")
     message.channel.send(helpembed)
+    }
     } 
