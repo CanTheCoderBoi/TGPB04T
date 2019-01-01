@@ -11,6 +11,7 @@ module.exports.run = (client, message, args) => {
         duyuruembed.setDescription(dtext)
         
         duyuruembed.setColor(0x00FFFF)       
+     message.channel.send("@here")
         message.channel.send(duyuruembed);        
         }
       
