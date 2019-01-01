@@ -8,4 +8,12 @@ module.exports.run = (client, message, args) => {
     helpembed.setFooter("Komutlar ile ilgili daha fazla bilgi almak için belirtilen komudu giriniz")
     message.channel.send(helpembed)
     }
+    if(args.length>0){
+    let helparg = message.content.slice(6)
+    if(helparg === "class") {
+        message.channel.send("That works");
+        
+    
+    }
+    }
     } 
