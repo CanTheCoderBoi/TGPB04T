@@ -5,8 +5,8 @@ module.exports.run = (client, message, args) => {
     
     message.channel.send('<:onay111:528931634586714132> Başarıyla yeniden başlattım.').then ((message) => {
     
-    console.log('Bot yeniden başladı 143');
-    process.exit(1);
+    console.log('Bot yeniden başladı');
+    process.exit(0);
     
     });
     } else {
