@@ -15,7 +15,7 @@ module.exports.run = (client, message, args) => {
             user.points += 1;
             user.save();
         }
-        message.channel.send(`**${message.author.tag}** kullanıcısı ${member.user.tag} kullanıcısına teşekkür etti! *+1 puan*`);
+        message.channel.send(`**${message.author.tag}** kullanıcısı **${member.user.tag}** kullanıcısına teşekkür etti! *+1 puan*`);
         delayedUsers.push(message.author.id);
     })
     setTimeout(() => {
