@@ -9,7 +9,7 @@ module.exports.run = (client, message, args) => {
     message.channel.send(helpembed)
     }
     if(args.length>0){
-    let helparg = message.content.slice(6)
+    let helparg = args[1]
     if(helparg === "class") {
         message.channel.send("That works");
         
