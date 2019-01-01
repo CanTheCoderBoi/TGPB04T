@@ -5,6 +5,7 @@ module.exports.run = (client, message, args) => {
     helpembed.setAuthor(message.author.tag, message.author.avatarURL);
     helpembed.addField("?docs <alt-başlık>","Belirlenen dosyanın anlatımına götürür. Örnek olarak class başlığının alt başlığı olan Attachments i görmek için ?docs Attachments")
     helpembed.addField("?help class","Class başlığının alt başlıklarını gösterir.")
+    helpembed.addField("?davet","Sunucu davet linkini gösterir")
     helpembed.setThumbnail("https://discord.js.org/static/logo-square.png")
     helpembed.setFooter("Komutlar ile ilgili daha fazla bilgi almak için belirtilen komudu giriniz")
     helpembed.setColor(0xFF8000)    
