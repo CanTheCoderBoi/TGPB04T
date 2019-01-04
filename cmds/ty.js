@@ -6,7 +6,7 @@ module.exports.run = (client, message, args) => {
     if (delayedUsers.includes(message.author.id)) return message.reply("Son 5dk içerisinde birine teşekkür etmişsin! Lütfen daha sonra tekrar dene.").then(msg=>{msg.delete(8000)})
     
     let member = message.mentions.members.first();
-    if (!member || member == message.member) return message.reply("Lütfen teşekkür etmek için birini etiketle ve tekrar dene.").then(msg => {msg.delete(10000)});
+    if (!member || member == message.member || member.user.bot) return message.reply("Lütfen teşekkür etmek için birini etiketle ve tekrar dene.").then(msg => {msg.delete(10000)});
     schemas.userPoints.findOne({ userID: member.id }, (err, user) => {
         if (!user) {
             let newUser = new schemas.userPoints({ userID: member.id, points: 1})
