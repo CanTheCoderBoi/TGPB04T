@@ -11,6 +11,8 @@ client.on("ready", () => {
 
 client.on("guildMemberAdd", async member => {
     client.channels.get("528947965604265984").send(`Hoş Geldin, <@${member.id}>! Sunucu Üye Sayısı \`${client.guilds.get("403879632656662528").members.size}\``)
+    let role = client.guilds.get("403879632656662528").roles.get("523183261518921728");
+    member.addRole(role);
 })
 
 client.on("message", async (message) => {
