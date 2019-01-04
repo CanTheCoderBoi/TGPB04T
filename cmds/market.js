@@ -8,7 +8,7 @@ marketembed.addField("Veteran","<@&529706657605877772> rolünü kazanırsınız.
 marketembed.addField("TGP Specialist","<@&529047857500520458> rolünü kazanırsınız. Fiyat : 50 coin. ")
 marketembed.addField("Proficient","<@&523181300857962506> rolünü kazanırsınız. Fiyat : 100 coin. ")
 marketembed.setFooter("Markette sorun olursa C4Navar#1337 ' a mesaj atınız.")
- marketembed.setTimsStamp()
+ marketembed.setTimeStamp()
 message.channel.send(marketembed)
 
 }
