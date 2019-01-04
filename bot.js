@@ -9,6 +9,10 @@ client.on("ready", () => {
     
 })
 
+client.on("guildMemberAdd", async member => {
+    client.channels.get("528947965604265984").send(`Hoş Geldin, <@${member.id}>! Sunucu Üye Sayısı \`${client.guilds.get("403879632656662528").members.size}\``)
+})
+
 client.on("message", async (message) => {
     if (message.author.bot) return;
     if (message.channel.type === "dm") return;
