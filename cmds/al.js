@@ -9,7 +9,7 @@ module.exports.run = (client, message, args) => {
             newUser.save()
             return message.channel.send("Üzgünüm ama yeterli miktarda puanınız bulunmamaktadır.")
         } else {
-            let item = args[0].toLowerCase();
+            let item = args[0].toLowerCase().toString();
             switch (item) {
                 case "regular" || "1":
                     if (user.points < 15) return message.channel.send("Üzgünüm ama yeterli miktarda puanınız bulunmamaktadır.")
