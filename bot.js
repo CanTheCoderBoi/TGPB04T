@@ -2,7 +2,7 @@ const discord = require("discord.js")
 const mongoose = require("mongoose")
 const client = new discord.Client();
 const pref = "?";
-
+client.owners = ["478307244509888532", "316641074967871500"]
 client.on("ready", () => {
     console.log("I am up and running!");
     client.user.setActivity("komutları", {type: "LISTENING"});
