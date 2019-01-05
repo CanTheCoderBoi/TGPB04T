@@ -6,6 +6,7 @@ module.exports.run = (client, message, args) => {
     helpembed.addField("?docs <alt-başlık>","Belirlenen dosyanın anlatımına götürür. Örnek olarak class başlığının alt başlığı olan Attachments i görmek için ?docs Attachments")
     helpembed.addField("?help class","Class başlığının alt başlıklarını gösterir.")
     helpembed.addField("?davet","Sunucu davet linkini gösterir")
+    helpembed.addField("Puanlama ve market sistemi "," Sunucumuzda puan ve market sistemi vardır. Birisi size yardım ettiğinde ona teşekkür etmek için ?ty @etiket komudunu kullanınız. Puanlarınıza bakmak için ?puan ve markete gitmek için ?market komudunu kullanınız.")
     helpembed.setThumbnail("https://discord.js.org/static/logo-square.png")
     helpembed.setFooter("Komutlar ile ilgili daha fazla bilgi almak için belirtilen komudu giriniz")
     helpembed.setColor(0xFF8000)    
