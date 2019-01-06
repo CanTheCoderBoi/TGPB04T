@@ -1,7 +1,7 @@
 const discord = require("discord.js");
 module.exports.run = (client, message, args) => {
 
-let basvuruyer = args[1]
+let basvuruyer = args[0]
 let basvurumesaj = args.slice(1).join(" ")
 
 if(!basvuruyer) return message.reply("Hangi dalda başvuracağınızı seçmediniz. Kullanım : ?basvuru icerik/partner/gelistirici <başvuru mesaj> ")
