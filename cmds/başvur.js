@@ -4,8 +4,8 @@ module.exports.run = (client, message, args) => {
     let basvuruyer = args[0]
     let basvurumesaj = args.slice(1).join(" ")
 
-    if (!basvuruyer) return message.reply("Hangi dalda başvuracağınızı seçmediniz. Kullanım : ?basvuru icerik/partner/gelistirici <başvuru mesaj> ")
-    if (!basvurumesaj) return message.reply("Başvuru mesağınızı girmediniz. **Kullanım : ?basvuru icerik/partner/gelistirici <başvuru mesaj>**")
+    if (!basvuruyer) return message.reply("Hangi dalda başvuracağınızı seçmediniz. Kullanım : ?basvuru içerik/partner/geliştirici <başvuru mesaj> ")
+    if (!basvurumesaj) return message.reply("Başvuru mesağınızı girmediniz. **Kullanım : ?basvuru içerik/partner/geliştirici <başvuru mesaj>**")
 
     if (basvuruyer === "partner") {
         message.delete()
@@ -19,7 +19,7 @@ module.exports.run = (client, message, args) => {
         client.channels.get("531395962904641538").send(partnerembed)
     }
 
-    if (basvuruyer === "icerik") {
+    if (basvuruyer === "içerik") {
         message.delete()
         message.reply("Başvurunuz <#531395962904641538> kanalına eklendi.")
         let icerikembed = new discord.RichEmbed();
@@ -31,7 +31,7 @@ module.exports.run = (client, message, args) => {
         client.channels.get("531395962904641538").send(icerikembed)
     }
 
-    if (basvuruyer === "gelistirici") {
+    if (basvuruyer === "geliştirici") {
         message.delete()
         message.reply("Başvurunuz <#531395962904641538> kanalına eklendi.")
         let gelistiriciembed = new discord.RichEmbed();
