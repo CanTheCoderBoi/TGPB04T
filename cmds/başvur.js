@@ -4,8 +4,8 @@ module.exports.run = (client, message, args) => {
     let basvuruyer = args[0]
     let basvurumesaj = args.slice(1).join(" ")
 
-    if (!basvuruyer) return message.reply("Hangi dalda başvuracağınızı seçmediniz. Kullanım : ?basvuru içerik/partner/geliştirici <başvuru mesaj> ")
-    if (!basvurumesaj) return message.reply("Başvuru mesağınızı girmediniz. **Kullanım : ?basvuru içerik/partner/geliştirici <başvuru mesaj>**")
+    if (!basvuruyer) return message.reply("Hangi dalda başvuracağınızı seçmediniz. Kullanım : ?başvur içerik/partner/geliştirici <başvuru mesaj> ")
+    if (!basvurumesaj) return message.reply("Başvuru mesağınızı girmediniz. **Kullanım : ?başvur içerik/partner/geliştirici <başvuru mesaj>**")
 
     if (basvuruyer === "partner") {
         message.delete()
