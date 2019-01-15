@@ -2,6 +2,7 @@ const discord = require("discord.js");
 module.exports.run = (client, message, args) => {
 
 let kickkisi = message.mentions.users.first()
+if(!kickkisi.kickable) return message.reply(" Bu kişiyi atamazsınız")
 if(!message.member.roles.has("523179624772010004")) return message.channel.send("Bu komudu kullanmak için yetkiniz yok.")
 if(!kickkisi) return message.channel.send("Sunucudan atacağım üyeyi seçmediniz.");
 let kicksebep = args.slice(1).join(" ")
