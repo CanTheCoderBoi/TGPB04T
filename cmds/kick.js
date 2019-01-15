@@ -5,7 +5,7 @@ module.exports.run = (client, message, args) => {
     module.exports.run = (client, message, args) => {
     
     let kickkisi = message.mentions.users.first()
-    if(kickkisi.id == message.author.id) return message.channel.send("Smh kendini sunucudan atamazsın ama belki ben atarım <a:jsmeme:528931472288120832>")
+    if(kickkisi.id === message.author.id) return message.channel.send("Smh kendini sunucudan atamazsın ama belki ben atarım <a:jsmeme:528931472288120832>")
     if(!kickkisi.kickable) return message.reply(" Maalesef bu kişi sunucudan atılamayacak kadar havalı.")
     if(!message.member.roles.has("523179624772010004")) return message.channel.send("Bu komudu kullanmak için yetkiniz yok.")
     if(!kickkisi) return message.channel.send("Sunucudan atacağım üyeyi seçmediniz.");
