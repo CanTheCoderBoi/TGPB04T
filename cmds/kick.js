@@ -1,9 +1,5 @@
 const discord = require("discord.js");
 module.exports.run = (client, message, args) => {
-
-    const discord = require("discord.js");
-    module.exports.run = (client, message, args) => {
-    
     let kickkisi = message.mentions.members.first()
     if(!kickkisi.kickable) return message.reply(" Maalesef bu kişi sunucudan atılamayacak kadar havalı.")
     if(!message.member.roles.has("523179624772010004")) return message.channel.send("Bu komudu kullanmak için yetkiniz yok.")
