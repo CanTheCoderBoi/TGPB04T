@@ -10,6 +10,5 @@ module.exports.run = (client, message, args) => {
     client.channels.get("534411959723098122").send("**" + kickkisi.user.tag + "**" + " (`" + kickkisi.id + "`)" + " kullanıcısı , **" + message.author.tag + "** (`" + message.author.id + "`) tarafından sunucudan atıldı. Atılma sebebi : (`" +kicksebep+ "`)" )
     client.channels.get("529042995769507840").send("**" + kickkisi.user.tag + "**" + " (`" + kickkisi.id + "`)" + " kullanıcısı , **" + message.author.tag + "** (`" + message.author.id + "`) tarafından sunucudan atıldı. Atılma sebebi : (`" +kicksebep+ "`)" )
     
-    }
 
 }
