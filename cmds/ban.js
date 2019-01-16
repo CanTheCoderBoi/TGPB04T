@@ -1,7 +1,7 @@
 const discord = require("discord.js");
 module.exports.run = (client, message, args) => {
 
-let bankisi = message.mentions.memebers.first()
+let bankisi = message.mentions.members.first()
 if(!bankisi.bannable) return message.reply(" Bu kişiyi yasaklayamazsınız.")
 if(!message.member.roles.has("523179624772010004")) return message.channel.send("Bu komudu kullanmak için yetkiniz yok.")
 if(!bankisi) return message.channel.send("Sunucudan yasaklayacağım üyeyi seçmediniz.");
