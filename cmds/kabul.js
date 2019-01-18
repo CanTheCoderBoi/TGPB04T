@@ -14,7 +14,7 @@ module.exports.run = (client, message, args) => {
             
         })
         return message.channel.send(`\`${args[0]}\` kabul edildi. Gerekli kişiye bilgilendirme yapıldı.`);
-        client.channels.get("530795148242583552").send(msg)
+        
     })
 }
 
