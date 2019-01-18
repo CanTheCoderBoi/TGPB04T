@@ -9,7 +9,7 @@ module.exports.run = (client, message, args) => {
 
     if (basvuruyer === "partner") {
         message.delete()
-        message.reply("Başvurunuz <#531395962904641538> kanalına eklendi.")
+        message.reply("Başvurunuz eklendi. Yakın zamanda size özelden mesaj atacağım.")
         let partnerembed = new discord.RichEmbed();
         partnerembed.setThumbnail(message.author.avatarURL)
         partnerembed.setAuthor(message.author.tag, message.author.avatarURL);
@@ -21,7 +21,7 @@ module.exports.run = (client, message, args) => {
 
     if (basvuruyer === "içerik") {
         message.delete()
-        message.reply("Başvurunuz <#531395962904641538> kanalına eklendi.")
+        message.reply("Başvurunuz eklendi. Yakın zamanda size özelden mesaj atacağım.")
         let icerikembed = new discord.RichEmbed();
         icerikembed.setThumbnail(message.author.avatarURL)
         icerikembed.setAuthor(message.author.tag, message.author.avatarURL);
@@ -33,7 +33,7 @@ module.exports.run = (client, message, args) => {
 
     if (basvuruyer === "geliştirici") {
         message.delete()
-        message.reply("Başvurunuz <#531395962904641538> kanalına eklendi.")
+        message.reply("Başvurunuz eklendi. Yakın zamanda size özelden mesaj atacağım.")
         let gelistiriciembed = new discord.RichEmbed();
         gelistiriciembed.setThumbnail(message.author.avatarURL)
         gelistiriciembed.setAuthor(message.author.tag, message.author.avatarURL);
