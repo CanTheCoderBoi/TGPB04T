@@ -3,6 +3,8 @@ module.exports.run = (client, message, args) => {
     if (message.channel.id != "531395962904641538") return;
     if(!args[0]) return message.channel.send("Lütfen mesaj kodunu belirtiniz.")
     message.channel.fetchMessage(args[0]).then(msg => {
+       client.channels.get("530795148242583552").send(msg)
+        client.channels.get("530795148242583552").send(msg)
         let user = client.users.find("tag", msg.embeds[0].author.name);
         if (!user) return message.channel.send("Lütfen mesaj kodunu belirtiniz.")
         message.guild.members.get(user.id).addRole(message.guild.roles.get("530794727780646953"));
