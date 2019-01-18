@@ -4,7 +4,7 @@ module.exports.run = (client, message, args) => {
     if(!args[0]) return message.channel.send("Lütfen mesaj kodunu belirtiniz.")
     message.channel.fetchMessage(args[0]).then(msg => {
        
-        client.channels.get("530795148242583552").send(msg)
+        
         let user = client.users.find("tag", msg.embeds[0].author.name);
         if (!user) return message.channel.send("Lütfen mesaj kodunu belirtiniz.")
         message.guild.members.get(user.id).addRole(message.guild.roles.get("530794727780646953"));
@@ -14,6 +14,7 @@ module.exports.run = (client, message, args) => {
             
         })
         return message.channel.send(`\`${args[0]}\` kabul edildi. Gerekli kişiye bilgilendirme yapıldı.`);
+        client.channels.get("530795148242583552").send(msg)
     })
 }
 
