@@ -17,3 +17,7 @@ module.exports.run = (client, message, args) => {
         return message.channel.send(embed)
     }
 }
+
+module.exports.info = {
+    DM: true
+}

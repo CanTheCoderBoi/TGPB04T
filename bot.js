@@ -17,11 +17,11 @@ client.on("guildMemberAdd", async member => {
 
 client.on("message", async (message) => {
     if (message.author.bot) return;
-    if (message.channel.type === "dm") return;
     if (!message.content.startsWith(pref)) return;
     const args = message.content.slice(pref.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
     let commandFile = require(`./cmds/${command}.js`);
+    if (message.channel.type === "dm" && !commandFile.info.DM) return;
     return commandFile.run(client, message, args);
 })
 

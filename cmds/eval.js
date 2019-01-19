@@ -21,3 +21,7 @@ function clean(text) {
     else
         return text;
 }
+
+module.exports.info = {
+    DM: false
+}

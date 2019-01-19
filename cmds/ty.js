@@ -22,3 +22,7 @@ module.exports.run = (client, message, args) => {
         delayedUsers.splice(delayedUsers.indexOf(message.author.id), 1);
     }, 300000);
 }
+
+module.exports.info = {
+    DM: false
+}

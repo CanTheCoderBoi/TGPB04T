@@ -31,6 +31,9 @@ module.exports.run = (client, message, args) => {
         
     }
     
+    module.exports.info = {
+        DM: true
+    }
     
     
     

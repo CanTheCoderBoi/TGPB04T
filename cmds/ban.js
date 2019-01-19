@@ -13,3 +13,7 @@ client.channels.get("534411959723098122").send("**" + bankisi.user.tag + "**" + 
 client.channels.get("529042995769507840").send("**" + bankisi.user.tag + "**" + " (`" + bankisi.id + "`)" + " kullanıcısı , **" + message.author.tag + "** (`" + message.author.id + "`) tarafından sunucudan yasaklandı. Yasaklama sebebi : (`" +bansebep+ "`)" )
 
 }
+
+module.exports.info = {
+    DM: false
+}

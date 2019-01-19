@@ -13,3 +13,7 @@ module.exports.run = (client, message, args) => {
         msg.react(message.guild.emojis.get("527600881378787328"));
     })
 }
+
+module.exports.info = {
+    DM: false
+}

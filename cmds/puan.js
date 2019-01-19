@@ -15,3 +15,7 @@ module.exports.run = (client, message, args) => {
         return message.channel.send(pointEmbed);
     })
 }
+
+module.exports.info = {
+    DM: true
+}

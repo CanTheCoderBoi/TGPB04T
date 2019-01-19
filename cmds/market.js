@@ -13,3 +13,7 @@ module.exports.run = (client, message, args) => {
     message.channel.send(marketembed)
 
 }
+
+module.exports.info = {
+    DM: true
+}
