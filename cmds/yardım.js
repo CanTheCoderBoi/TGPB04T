@@ -36,7 +36,7 @@ module.exports.run = (client, message, args) => {
     markembed.addField("Market","Sahip olduğunuz puanları harcamak için güzel bir mağazamız var. ?market komudu ile bu mağazaya göz atın!")
     markembed.addField("Rol satın alma","Markette bulunan rollerden birini almak için ?al <rol adı> . Örnek kullanım : ?al Proficient")
     markembed.setFooter("Komutlarda sorun olursa veya daha detaylı bilgi için yetkililere ulaşınız.")
-    marketembed.setColor(0x8000ff)
+    markembed.setColor(0x8000ff)
     message.channel.send(markembed)
     }
 
