@@ -1,7 +1,7 @@
 const discord = require("discord.js");
 module.exports.run = (client, message, args) => {
     let helparg = args[0]
-    var komutt = ["1","2","3","4","moderasyon","market","genel","kodlama","class"]
+    
     if (args.length == 0) {
     let sembed = new discord.RichEmbed();
     sembed.setAuthor(message.author.tag, message.author.avatarURL);
@@ -13,8 +13,8 @@ module.exports.run = (client, message, args) => {
     message.channel.send(sembed)
     }
     if(args.length == 1){
-    if(helparg !== komutt) return message.reply("Bu alt başlık bulunamadı. ?yardım girmeye ne dersin?")
-    
+    if(!helparg === "1"||"2"||"3"||"4"||"moderasyon"||"market"||"genel"||"kodlama"||"class") return message.reply("Bu alt başlık bulunamadı. ?yardım girmeye ne dersin?")
+
     if(helparg === "moderasyon" || "1"){
     if(!message.member.roles.has("523179624772010004")) return message.reply("Moderatör+ rolüne sahip olmadığınız için bu komut listesini görüntüleyemezsiniz.")
     let modembed = new discord.RichEmbed();
