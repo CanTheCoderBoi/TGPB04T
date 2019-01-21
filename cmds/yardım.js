@@ -14,8 +14,6 @@ module.exports.run = (client, message, args) => {
     }
     
     
-    if(helparg !== "moderasyon" || "market" || "genel" || "kodlama" || "class") return message.reply("Bu alt başlık bulunamadı. ?yardım komudunu girerek bakabilirsin.")
-    
     if(helparg === "moderasyon"){
     if(!message.member.roles.has("523179624772010004")) return message.reply("Moderatör+ rolüne sahip olmadığınız için bu komut listesini görüntüleyemezsiniz.")
     let modembed = new discord.RichEmbed();
