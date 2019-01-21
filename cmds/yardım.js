@@ -2,25 +2,27 @@ const discord = require("discord.js");
 module.exports.run = (client, message, args) => {
     let helparg = args[0]
     
-    if (!helparg) {
+    if (args.length == 0) {
     let sembed = new discord.RichEmbed();
     sembed.setAuthor(message.author.tag, message.author.avatarURL);
-    sembed.addField("[1] Moderasyon"," Moderatör+ Role sahip olan kişiler görüntüleyebilir. Kullanım : ?yardım moderasyon veya ?yardım 1")
-    sembed.addField("[2] Market","Sunucumuzdaki teşekkür ve market sistemi hakkında bilgi verir. Kullanım : ?yardım market veya ?yardım 2")
-    sembed.addField("[3] Genel","Sunucudaki genel olarak kullanılabilen komutları gösterir. Kullanım : ?yardım genel veya ?yardım 3")
-    sembed.addField("[4] Kodlama"," Kodlama ile ilgili olan komutları gösterir. Kullanım : ?yardım kodlama veya ?yardım 4")
+    sembed.addField("[1] Moderasyon"," Moderatör+ Role sahip olan kişiler görüntüleyebilir. Kullanım : ?yardım moderasyon")
+    sembed.addField("[2] Market","Sunucumuzdaki teşekkür ve market sistemi hakkında bilgi verir. Kullanım : ?yardım market")
+    sembed.addField("[3] Genel","Sunucudaki genel olarak kullanılabilen komutları gösterir. Kullanım : ?yardım genel")
+    sembed.addField("[4] Kodlama"," Kodlama ile ilgili olan komutları gösterir. Kullanım : ?yardım kodlama")
     sembed.setColor(0x8000ff)
     message.channel.send(sembed)
     }
     
     
-    if(helparg === "moderasyon" || "1"){
+    if(args.length > 0 ) {
+    if(helparg !== "moderasyon" || "market" || "genel" || "kodlama" || "class") return message.reply("Bu alt başlık bulunamadı. ?yardım komudunu girerek bakabilirsin.")
+    if(helparg === "moderasyon"){
     if(!message.member.roles.has("523179624772010004")) return message.reply("Moderatör+ rolüne sahip olmadığınız için bu komut listesini görüntüleyemezsiniz.")
     let modembed = new discord.RichEmbed();
     modembed.setAuthor(message.author.tag, message.author.avatarURL);
     modembed.addField("Sunucudan yasaklama / banlama","?ban @üye sebep komudu ile sunucudan üye yasaklayabilirsiniz.")
     modembed.addField("Sunucudan atma / kickleme ","?kick @üye sebep komudu ile sunucudan üye atabilirsiniz.")
-    modembed.addField("Üye muteleme / susturma",".mute @üye sebep komudu ile sunucuda bir kişiyi susturabilirsiniz. (TGP BOT İÇİNM YAPILACAK.)")
+    modembed.addField("Üye muteleme / susturma",".mute @üye sebep komudu ile sunucuda bir kişiyi susturabilirsiniz. (TGP Bot için yapılacaktır..)")
     modembed.addField("Başvuru kabul","?kabul <başvuruid> ile başvuruları kabul edebilirsiniz. Dip Not: Sadece <#531395962904641538> kanalında çalışır.(Kabul etmeden önce Supervisorlara danışın.)")
     modembed.setFooter("Komutlarda sorun olursa veya daha detaylı bilgi için yetkililere ulaşınız.")
     modembed.addField("Başvuru reddetmek","?red <başvuruid> ile başvuruları reddedebilirsiniz. Dip Not: Sadece <#531395962904641538> kanalında çalışır. (Reddetmeden önce Supervisorlara danışın.)")
@@ -28,7 +30,7 @@ module.exports.run = (client, message, args) => {
     message.channel.send(modembed)
     }
 
-    if(helparg === "market" || "2"){
+    if(helparg === "market"){
     let markembed = new discord.RichEmbed();
     markembed.setAuthor(message.author.tag, message.author.avatarURL);
     markembed.addField("Teşekkür komudu","Bir kullanıcıya teşekkür etmek için ?ty @üye komudunu kullanınız. Unutmayın, teşekkür komudunu her 5 dakikada bir kullanabilirsiniz.")
@@ -40,7 +42,7 @@ module.exports.run = (client, message, args) => {
     message.channel.send(markembed)
     }
 
-    if(helparg === "genel" || "3"){
+    if(helparg === "genel"){
     let genelembed = new discord.RichEmbed();  
     genelembed.setAuthor(message.author.tag, message.author.avatarURL);
     genelembed.addField("Başvur ","Sunucu Partneri ve İçerik / Bot Üreticileri Rolleri için başvurularınızı artık ?başvur <partner/içerik/geliştirici> <mesaj> komutuyla alıyoruz. <@529333893954797588>'a DM'den başvurunuzu yaptığınız zaman, başvurunuz önce yetkili üyelerimiz arasında kontrol ediliyor, daha sonra ise gerekli işlemler yapılıyor. Daha fazla bilgi için <#531498282149478410>")
@@ -52,7 +54,7 @@ module.exports.run = (client, message, args) => {
     message.channel.send(genelembed)
     }
 
-    if(helparg === "kodlama" || "4"){
+    if(helparg === "kodlama"){
     let kodlamaembed = new discord.RichEmbed();  
     kodlamaembed.setAuthor(message.author.tag, message.author.avatarURL);
     kodlamaembed.addField("Dokümanlar","Belirlenen dosyanın anlatımına götürür. Kullanım : ?docs <alt-başlık> .  Örnek olarak class başlığının alt başlığı olan Attachments i görmek için ?docs Attachments")
@@ -69,9 +71,9 @@ module.exports.run = (client, message, args) => {
     classembed.setFooter("Komutlarda sorun olursa veya daha detaylı bilgi için yetkililere ulaşınız.")
     classembed.setColor(0x8000ff)
     message.channel.send(classembed)
-    
     }
-    
+        
+    }
     
 
     } 
