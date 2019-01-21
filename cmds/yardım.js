@@ -1,43 +1,78 @@
 const discord = require("discord.js");
 module.exports.run = (client, message, args) => {
-    if (args.length == 0) {
-    let helpembed = new discord.RichEmbed();
-    helpembed.setAuthor(message.author.tag, message.author.avatarURL);
-    helpembed.addField("?docs <alt-başlık>","Belirlenen dosyanın anlatımına götürür. Örnek olarak class başlığının alt başlığı olan Attachments i görmek için ?docs Attachments")
-    helpembed.addField("?yardım class","Class başlığının alt başlıklarını gösterir.")
-    helpembed.addField("?davet","Sunucu davet linkini gösterir")
-    helpembed.addField("Puanlama ve market sistemi "," Sunucumuzda puan ve market sistemi vardır. Birisi size yardım ettiğinde ona teşekkür etmek için ?ty @etiket komudunu kullanınız. Puanlarınıza bakmak için ?puan ve markete gitmek için ?market komudunu kullanınız.")
-    helpembed.setThumbnail("https://discord.js.org/static/logo-square.png")
-    helpembed.setFooter("Komutlar ile ilgili daha fazla bilgi almak için belirtilen komudu giriniz")
-    helpembed.setColor(0xFF8000)    
-    message.channel.send(helpembed)
-    }
-    if(args.length>0){
     let helparg = args[0]
+    var komutt = ["1","2","3","4","moderasyon","market","genel","kodlama","class"]
+    if (args.length == 0) {
+    let sembed = new discord.RichEmbed();
+    sembed.setAuthor(message.author.tag, message.author.avatarURL);
+    sembed.addField("[1] Moderasyon"," Moderatör+ Role sahip olan kişiler görüntüleyebilir. Kullanım : ?yardım moderasyon veya ?yardım 1")
+    sembed.addField("[2] Market","Sunucumuzdaki teşekkür ve market sistemi hakkında bilgi verir. Kullanım : ?yardım market veya ?yardım 2")
+    sembed.addField("[3] Genel","Sunucudaki genel olarak kullanılabilen komutları gösterir. Kullanım : ?yardım genel veya ?yardım 3")
+    sembed.addField("[4] Kodlama"," Kodlama ile ilgili olan komutları gösterir. Kullanım : ?yardım kodlama veya ?yardım 4")
+    sembed.setColor(0x8000ff)
+    message.channel.send(sembed)
+    }
+    if(args.length == 1){
+    if(helparg !== komutt) return message.reply("Bu alt başlık bulunamadı. ?yardım girmeye ne dersin?")
     
+    if(helparg === "moderasyon" || "1"){
+    if(!message.member.roles.has("523179624772010004")) return message.reply("Moderatör+ rolüne sahip olmadığınız için bu komut listesini görüntüleyemezsiniz.")
+    let modembed = new discord.RichEmbed();
+    modembed.setAuthor(message.author.tag, message.author.avatarURL);
+    modembed.addField("Sunucudan yasaklama / banlama","?ban @üye sebep komudu ile sunucudan üye yasaklayabilirsiniz.")
+    modembed.addField("Sunucudan atma / kickleme ","?kick @üye sebep komudu ile sunucudan üye atabilirsiniz.")
+    modembed.addField("Üye muteleme / susturma",".mute @üye sebep komudu ile sunucuda bir kişiyi susturabilirsiniz. (TGP BOT İÇİNM YAPILACAK.)")
+    modembed.addField("Başvuru kabul","?kabul <başvuruid> ile başvuruları kabul edebilirsiniz. Dip Not: Sadece <#531395962904641538> kanalında çalışır.(Kabul etmeden önce Supervisorlara danışın.)")
+    modembed.setFooter("Komutlarda sorun olursa veya daha detaylı bilgi için yetkililere ulaşınız.")
+    modembed.addField("Başvuru reddetmek","?red <başvuruid> ile başvuruları reddedebilirsiniz. Dip Not: Sadece <#531395962904641538> kanalında çalışır. (Reddetmeden önce Supervisorlara danışın.)")
+    modembed.setColor(0x8000ff)
+    message.channel.send(modembed)
+    }
+
+    if(helparg === "market" || "2"){
+    let markembed = new discord.RichEmbed();
+    markembed.setAuthor(message.author.tag, message.author.avatarURL);
+    markembed.addField("Teşekkür komudu","Bir kullanıcıya teşekkür etmek için ?ty @üye komudunu kullanınız. Unutmayın, teşekkür komudunu her 5 dakikada bir kullanabilirsiniz.")
+    markembed.addField("Puan kontrol","?puan komudu ile sahip olduğunuz <:tgpcoin:530810516629618718> leri görüntüleyebilirsiniz.")
+    markembed.addField("Market","Sahip olduğunuz puanları harcamak için güzel bir mağazamız var. ?market komudu ile bu mağazaya göz atın!")
+    markembed.addField("Rol satın alma","Markette bulunan rollerden birini almak için ?al <rol adı> . Örnek kullanım : ?al Proficient")
+    markembed.setFooter("Komutlarda sorun olursa veya daha detaylı bilgi için yetkililere ulaşınız.")
+    marketembed.setColor(0x8000ff)
+    message.channel.send(markembed)
+    }
+
+    if(helparg === "genel" || "3"){
+    let genelembed = new discord.RichEmbed();  
+    genelembed.setAuthor(message.author.tag, message.author.avatarURL);
+    genelembed.addField("Başvur ","Sunucu Partneri ve İçerik / Bot Üreticileri Rolleri için başvurularınızı artık ?başvur <partner/içerik/geliştirici> <mesaj> komutuyla alıyoruz. <@529333893954797588>'a DM'den başvurunuzu yaptığınız zaman, başvurunuz önce yetkili üyelerimiz arasında kontrol ediliyor, daha sonra ise gerekli işlemler yapılıyor. Daha fazla bilgi için <#531498282149478410>")
+    genelembed.addField("Davet","?davet komudu ile kalıcı davet linkini görüntüleyebilirsiniz.")
+    genelembed.addField("Linkler","?linkler komudu ile sunucumuzun bağlı olduğu platformların linklerini görüntüleyebilirsiniz.")
+    genelembed.addField("Öner","?öner <mesaj> komudunu <#529031030636806144> kanalına girerek sunucumuz için öneri/tavsiyede bulunabilirsiniz.")
+    genelembed.setFooter("Komutlarda sorun olursa veya daha detaylı bilgi için yetkililere ulaşınız.")
+    genelembed.setColor(0x8000ff)
+    message.channel.send(genelembed)
+    }
+
+    if(helparg === "kodlama" || "4"){
+    let kodlamaembed = new discord.RichEmbed();  
+    kodlamaembed.setAuthor(message.author.tag, message.author.avatarURL);
+    kodlamaembed.addField("Dokümanlar","Belirlenen dosyanın anlatımına götürür. Kullanım : ?docs <alt-başlık> .  Örnek olarak class başlığının alt başlığı olan Attachments i görmek için ?docs Attachments")
+    kodlamaembed.addField("Başlıklar", "Şu anda belirli olan başlığımız class başlığıdır. Bu başlığın alt-başlıklarını görüntülemek için: ?yardım class")
+    kodlamaembed.setFooter("Komutlarda sorun olursa veya daha detaylı bilgi için yetkililere ulaşınız.")
+    kodlamaembed.setColor(0x8000ff)
+    message.channel.send(kodlamaembed)
+    }
+
     if(helparg === "class") {
-        let classembed = new discord.RichEmbed()
-        classembed.setAuthor(message.author.tag, message.author.avatarURL);
-        classembed.setTitle("Class komutları: ")
-        classembed.setDescription("Attachment  CategoryChannel  Channel  Client  ClientUser  ClientUserChannelOverride  ClientUserGuildSettings  ClientUserSettings  Collection  Collector  DiscordAPIError  DMChannel  Emoji  EvaluatedPermissions  Game  GroupDMChannel  Guild  GuildAuditLogs  GuildAuditLogsEntry  GuildChannel  GuildMember  Invite  Message  MessageAttachment  MessageCollector  MessageEmbed  MessageEmbedAuthor  MessageEmbedField  MessageEmbedFooter  MessageEmbedImage  MessageEmbedProvider  MessageEmbedThumbnail  MessageEmbedVideo  MessageMentions  MessageReaction  OAuth2Application  PartialGuild  PartialGuildChannel  PermissionOverwrites  Permissions  Presence  ReactionCollector  ReactionEmoji  RichEmbed  RichPresenceAssets  Role  Shard  ShardClientUtil  ShardingManager  SnowflakeUtil  StreamDispatcher  TextChannel  User  UserConnection  UserProfile  Util  VoiceBroadcast  VoiceChannel  VoiceConnection  VoiceReceiver  VoiceRegion  VolumeInterface  Webhook  WebhookClient  ");
-        classembed.setFooter("Komutlar çalışmıyorsa büyük/küçük harf uyumuna dikkat ediniz.")
-        classembed.setColor(0x8000ff)
-        message.channel.send(classembed);        
+    let classembed = new discord.RichEmbed();
+    classembed.setTitle("Class başlığının alt-başlıkları")
+    classembed.setDescription("Attachment  CategoryChannel  Channel  Client  ClientUser  ClientUserChannelOverride  ClientUserGuildSettings  ClientUserSettings  Collection  Collector  DiscordAPIError  DMChannel  Emoji  EvaluatedPermissions  Game  GroupDMChannel  Guild  GuildAuditLogs  GuildAuditLogsEntry  GuildChannel  GuildMember  Invite  Message  MessageAttachment  MessageCollector  MessageEmbed  MessageEmbedAuthor  MessageEmbedField  MessageEmbedFooter  MessageEmbedImage  MessageEmbedProvider  MessageEmbedThumbnail  MessageEmbedVideo  MessageMentions  MessageReaction  OAuth2Application  PartialGuild  PartialGuildChannel  PermissionOverwrites  Permissions  Presence  ReactionCollector  ReactionEmoji  RichEmbed  RichPresenceAssets  Role  Shard  ShardClientUtil  ShardingManager  SnowflakeUtil  StreamDispatcher  TextChannel  User  UserConnection  UserProfile  Util  VoiceBroadcast  VoiceChannel  VoiceConnection  VoiceReceiver  VoiceRegion  VolumeInterface  Webhook  WebhookClient ")
+    classembed.setFooter("Komutlarda sorun olursa veya daha detaylı bilgi için yetkililere ulaşınız.")
+    classembed.setColor(0x8000ff)
+    message.channel.send(classembed)
+    
     }
-        
-        
-        
-        
-        
     }
-    
-    module.exports.info = {
-        DM: true
-    }
-    
-    
-    
-    
-    
-    
+
+
     } 
