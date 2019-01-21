@@ -2,7 +2,7 @@ const discord = require("discord.js");
 module.exports.run = (client, message, args) => {
     let helparg = args[0]
     
-    if (args.length == 0) {
+    if (!helparg) {
     let sembed = new discord.RichEmbed();
     sembed.setAuthor(message.author.tag, message.author.avatarURL);
     sembed.addField("[1] Moderasyon"," Moderatör+ Role sahip olan kişiler görüntüleyebilir. Kullanım : ?yardım moderasyon veya ?yardım 1")
