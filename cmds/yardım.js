@@ -2,7 +2,7 @@ const discord = require("discord.js");
 module.exports.run = (client, message, args) => {
     let helparg = args[0]
     
-    if (args.length == 0) {
+    if (!helparg) {
     let sembed = new discord.RichEmbed();
     sembed.setAuthor(message.author.tag, message.author.avatarURL);
     sembed.addField("[1] Moderasyon"," Moderatör+ Role sahip olan kişiler görüntüleyebilir. Kullanım : ?yardım moderasyon")
@@ -14,8 +14,8 @@ module.exports.run = (client, message, args) => {
     }
     
     
-    if(args.length > 0 ) {
     if(helparg !== "moderasyon" || "market" || "genel" || "kodlama" || "class") return message.reply("Bu alt başlık bulunamadı. ?yardım komudunu girerek bakabilirsin.")
+    
     if(helparg === "moderasyon"){
     if(!message.member.roles.has("523179624772010004")) return message.reply("Moderatör+ rolüne sahip olmadığınız için bu komut listesini görüntüleyemezsiniz.")
     let modembed = new discord.RichEmbed();
@@ -73,7 +73,7 @@ module.exports.run = (client, message, args) => {
     message.channel.send(classembed)
     }
         
-    }
+    
     
 
     } 
