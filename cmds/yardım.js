@@ -13,7 +13,7 @@ module.exports.run = (client, message, args) => {
     message.channel.send(sembed)
     }
     
-    if(args.length > 0 ){
+    
     if(helparg === "moderasyon" || "1"){
     if(!message.member.roles.has("523179624772010004")) return message.reply("Moderatör+ rolüne sahip olmadığınız için bu komut listesini görüntüleyemezsiniz.")
     let modembed = new discord.RichEmbed();
@@ -72,6 +72,6 @@ module.exports.run = (client, message, args) => {
     
     }
     
-    }
+    
 
     } 
