@@ -13,7 +13,7 @@ module.exports.run = (client, message, args) => {
     message.channel.send(sembed)
     }
     if(args.length == 1){
-    if(!helparg === "1"||"2"||"3"||"4"||"moderasyon"||"market"||"genel"||"kodlama"||"class") return message.reply("Bu alt başlık bulunamadı. ?yardım girmeye ne dersin?")
+    if(helparg !== "1"||"2"||"3"||"4"||"moderasyon"||"market"||"genel"||"kodlama"||"class") return message.reply("Bu alt başlık bulunamadı. ?yardım girmeye ne dersin?")
 
     if(helparg === "moderasyon" || "1"){
     if(!message.member.roles.has("523179624772010004")) return message.reply("Moderatör+ rolüne sahip olmadığınız için bu komut listesini görüntüleyemezsiniz.")
