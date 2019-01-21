@@ -69,6 +69,8 @@ module.exports.run = (client, message, args) => {
     classembed.setFooter("Komutlarda sorun olursa veya daha detaylı bilgi için yetkililere ulaşınız.")
     classembed.setColor(0x8000ff)
     message.channel.send(classembed)
+    }else {
+    message.reply("Bu alt başlık bulunamadı. ?yardım komudunu girerek tüm geçerli komutları görüntüleyebilirsin.")
     }
         
     
