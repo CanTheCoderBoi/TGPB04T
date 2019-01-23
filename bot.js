@@ -2,6 +2,7 @@ const discord = require("discord.js")
 const mongoose = require("mongoose")
 const client = new discord.Client();
 const pref = "?";
+const modMail = require("./utils/modmail.js")
 client.owners = ["478307244509888532", "316641074967871500"]
 client.on("ready", () => {
     console.log("I am up and running!");
@@ -17,6 +18,9 @@ client.on("guildMemberAdd", async member => {
 
 client.on("message", async (message) => {
     if (message.author.bot) return;
+    if (message.channel.type == "dm" && !message.content.startsWith(pref)) {
+        return modMail.createNewThread(client, message);
+    }
     if (!message.content.startsWith(pref)) return;
     const args = message.content.slice(pref.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
