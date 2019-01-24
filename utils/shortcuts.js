@@ -14,7 +14,7 @@ module.exports.getMember = (message, args) => {
 
 module.exports.randomXP = (client, message) => {
   if(message.channel.type == "dm") return;
-  if (Math.floor(Math.random() * 100) < 90) return;
+  if (Math.floor(Math.random() * 100) < 99) return;
   let randomAmount = Math.floor(Math.random() * 4) + 1;
   schemas.userPoints.findOne({userID: message.author.id}, (err, res) => {
     res.points += randomAmount;
