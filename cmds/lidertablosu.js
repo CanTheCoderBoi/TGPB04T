@@ -1,15 +1,16 @@
 const Discord = require("discord.js");
 const shortcuts = require("../utils/shortcuts.js");
 const schemas = require("../schemas.js")
-
+const {table} = require("table");
 module.exports.run = (client, message, args) => {
-    schemas.userPoints.find({}).sort('userID').limit(10).exec((err, results) => {
+    let data, output;
+    data = [["Sıralama", "Kullanıcı", "Puanı"]]
+    schemas.userPoints.find({}).sort('points').limit(10).exec((err, results) => {
         let leaderBoardEmbed = new Discord.RichEmbed().setTitle("Lider Tablosu:").setTimestamp().setFooter(client.user.tag, client.user.avatarURL).setColor(0x9f6f78);
-        let text = [];
         for (let i = 0; i < results.length; i++) {
-            text.push(`${i}. <@${results[i].userID}> | ${results[i].points}<:tgpcoin:530810516629618718>`);
+            data.push([`${ i+ 1}.`, `<@${ results[i].userID }>`,`${ results[i].points }<:tgpcoin:530810516629618718>`]);
         }
-        leaderBoardEmbed.setDescription(`${text.join("\n")}`);
+        leaderBoardEmbed.setDescription(table(data));
         message.channel.send(leaderBoardEmbed);
     })
 }
