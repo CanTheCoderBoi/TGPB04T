@@ -18,14 +18,15 @@ module.exports.randomXP = (client, message) => {
   let randomAmount = Math.floor(Math.random() * 4) + 1;
   schemas.userPoints.findOne({userID: message.author.id}, (err, res) => {
     res.points += randomAmount;
+    let pointEmbed = new Discord.RichEmbed()
+      .setAuthor(message.author.tag, message.author.avatarURL)
+      .setTitle("Biraz oradan biraz buradan...")
+      .setDescription(`+ ${randomAmount}<:tgpcoin:530810516629618718>`)
+      .setThumbnail(client.user.avatarURL)
+      .setFooter("Yine iyisin :D")
+      .setTimestamp();
+    return message.channel.send(pointEmbed).then(msg => { msg.delete(8000) });
     res.save()
   })
-  let pointEmbed = new Discord.RichEmbed()
-    .setAuthor(message.author.tag, message.author.avatarURL)
-    .setTitle("Biraz oradan biraz buradan...")
-    .setDescription(`+ ${randomAmount}<:tgpcoin:530810516629618718>`)
-    .setThumbnail(client.user.avatarURL)
-    .setFooter("Yine iyisin :D")
-    .setTimestamp();
-    return message.channel.send(pointEmbed).then(msg => {msg.delete(8000)});
+
 }
