@@ -14,7 +14,7 @@ module.exports.getMember = (message, args) => {
 
 module.exports.randomXP = (client, message) => {
   if(message.channel.type == "dm") return;
-  if (Math.floor(Math.random() * 100) < 75) return;
+  if (Math.floor(Math.random() * 100) < 90) return;
   let randomAmount = Math.floor(Math.random() * 4) + 1;
   schemas.userPoints.findOne({userID: message.author.id}, (err, res) => {
     res.points += randomAmount;
@@ -25,7 +25,7 @@ module.exports.randomXP = (client, message) => {
       .setThumbnail(client.user.avatarURL)
       .setFooter("Yine iyisin :D")
       .setTimestamp();
-    return message.channel.send(pointEmbed).then(msg => { msg.delete(8000) });
+    message.channel.send(pointEmbed).then(msg => { msg.delete(8000) });
     res.save()
   })
 
