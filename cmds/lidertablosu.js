@@ -10,6 +10,10 @@ module.exports.run = (client, message, args) => {
         }
         leaderBoardEmbed.setDescription(data.join("\n"));
         message.channel.send(leaderBoardEmbed);
+
+        console.log("E");
+        
+
     })
 }
 
