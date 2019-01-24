@@ -15,6 +15,8 @@ module.exports.run = (client, message, args) => {
         
 
     })
+    
+    console.log("Even weird")
 }
 
 module.exports.info = {
