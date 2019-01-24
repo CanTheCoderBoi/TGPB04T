@@ -14,7 +14,7 @@ module.exports.getMember = (message, args) => {
 
 module.exports.randomXP = (client, message) => {
   
-  if(message.channel.type == "dm") return;
+  if (message.channel.type == "dm" || message.channel.id == "529031030636806144") return;
   if (Math.floor(Math.random() * 100) < 90) return;
   if(lastPointWinners.includes(message.author.id)) return;
   let randomAmount = Math.floor(Math.random() * 4) + 1;
