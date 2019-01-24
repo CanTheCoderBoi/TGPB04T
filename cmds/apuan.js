@@ -3,7 +3,7 @@ const shortcuts = require("../utils/shortcuts.js");
 const schemas = require("../schemas.js")
 
 module.exports.run = (client, message, args) => {
-    if(!client.owners.include(message.author.id))
+    if(!client.owners.includes(message.author.id)) return;
     let member = shortcuts.getMember(message, args);
     if (!member) return message.reply("Hmm");
     if (Number(args[0])) return message.reply("Hmm");
