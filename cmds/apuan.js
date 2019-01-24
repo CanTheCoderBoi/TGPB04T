@@ -1,0 +1,18 @@
+const Discord = require("discord.js");
+const shortcuts = require("../utils/shortcuts.js");
+const schemas = require("../schemas.js")
+
+module.exports.run = (client, message, args) => {
+    if(!client.owners.include(message.author.id))
+    let member = shortcuts.getMember(message, args);
+    if (!member) return message.reply("Hmm");
+    if (Number(args[0])) return message.reply("Hmm");
+    schemas.userPoints.findOne({userID: member.id}, (err, Dmember) => {
+        Dmember.points += parseInt(Math.floor(args[0]));
+        return message.channel.send(`:ok_hand: **${member.user.tag}** + ${args[0]} = ${Dmember.points}`);
+    })
+}
+
+module.exports.info = {
+    DM: false
+}

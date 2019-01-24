@@ -15,7 +15,7 @@ module.exports.getMember = (message, args) => {
 module.exports.randomXP = (client, message) => {
   
   if(message.channel.type == "dm") return;
-  if (Math.floor(Math.random() * 100) < 96) return;
+  if (Math.floor(Math.random() * 100) < 90) return;
   if(lastPointWinners.includes(message.author.id)) return;
   let randomAmount = Math.floor(Math.random() * 4) + 1;
   schemas.userPoints.findOne({userID: message.author.id}, (err, res) => {
@@ -31,7 +31,7 @@ module.exports.randomXP = (client, message) => {
     lastPointWinners.push(message.author.id)
     setTimeout(() => {
       lastPointWinners.splice(lastPointWinners.indexOf(message.author.id, 1));
-    }, 30000);
+    }, 60000);
     res.save()
   })
 
