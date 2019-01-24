@@ -1,5 +1,6 @@
 const discord = require("discord.js")
 const mongoose = require("mongoose")
+const shortcuts = require("./utils/shortcuts.js")
 const client = new discord.Client();
 const pref = "?";
 client.owners = ["478307244509888532", "316641074967871500"]
@@ -22,6 +23,7 @@ client.on("message", async (message) => {
     const command = args.shift().toLowerCase();
     let commandFile = require(`./cmds/${command}.js`);
     if (message.channel.type === "dm" && !commandFile.info.DM) return;
+    shortcuts.randomXP(client, message);
     return commandFile.run(client, message, args);
 })
 
