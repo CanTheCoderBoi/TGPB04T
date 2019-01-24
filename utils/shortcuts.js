@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const schemas = require("../schemas.js")
-
+let lastPointWinners = [];
 
 module.exports.getMember = (message, args) => {
   let member = message.mentions.members.first();
@@ -13,8 +13,10 @@ module.exports.getMember = (message, args) => {
 }
 
 module.exports.randomXP = (client, message) => {
+  
   if(message.channel.type == "dm") return;
   if (Math.floor(Math.random() * 100) < 96) return;
+  if(lastPointWinners.includes(message.author.id)) return;
   let randomAmount = Math.floor(Math.random() * 4) + 1;
   schemas.userPoints.findOne({userID: message.author.id}, (err, res) => {
     res.points += randomAmount;
@@ -26,6 +28,10 @@ module.exports.randomXP = (client, message) => {
       .setFooter("Yine iyisin :D")
       .setTimestamp();
     message.channel.send(pointEmbed).then(msg => { msg.delete(8000) });
+    lastPointWinners.push(message.author.id)
+    setTimeout(() => {
+      lastPointWinners.splice(lastPointWinners.indexOf(message.author.id, 1));
+    }, 30000);
     res.save()
   })
 
