@@ -3,7 +3,7 @@ module.exports.run = (client, message, args) => {
 
 
         message.delete()
-   if (!message.member.hasPermission("ADMINISTRATOR") || message.author.id != "437286229403238410") return message.reply("Bunu kullanmak için yetkiniz yok")
+   if (!message.member.roles.has("523180483639771137 ")) return message.reply("Bunu kullanmak için yetkiniz yok")
         var dtext = args.join(' ')
         if(!dtext) return message.reply('Metin girişi yapılmadı! Lütfen metin giriniz.')
         
