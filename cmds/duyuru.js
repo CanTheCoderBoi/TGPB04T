@@ -5,7 +5,7 @@ module.exports.run = (client, message, args) => {
         message.delete()
         if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Bunu kullanmak için yetkiniz yok")
         var dtext = args.join(' ')
-        if(!dtext) return message.reply('Metin girişi yapılmadı. Lütfen metin giriniz.')
+        if(!dtext) return message.reply('Metin girişi yapılmadı! Lütfen metin giriniz.')
         
         let duyuruembed = new discord.RichEmbed()
         duyuruembed.setDescription(dtext)
