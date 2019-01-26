@@ -4,7 +4,7 @@
             "items": ["regular şeması", "regular şeması", "regular şeması", "regular şeması", "regular şeması", "veteran şeması", "veteran şeması", "regular şeması", "veteran şeması", "regular şeması"],
             "price": 15
         },
-        "b": {
+        "nadir": {
             "items": ["veteran şeması", "regular şeması", "veteran şeması", "regular şeması", "regular şeması", "veteran şeması", "veteran şeması", "regular şeması", "veteran şeması", "specialist şeması"],
             "price": 45
         },

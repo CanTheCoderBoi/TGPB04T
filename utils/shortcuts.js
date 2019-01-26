@@ -4,7 +4,7 @@ const items = require("../items.json")
 const ms = require("ms");
 let lastPointWinners = [];
 
-module.exports.getMember = (message, args) => {
+async function getMember(message, args) {
   let member = message.mentions.members.first();
   if (!member) {
     let id = args[0];
@@ -14,7 +14,7 @@ module.exports.getMember = (message, args) => {
   return member;
 }
 
-module.exports.randomXP = (client, message) => {
+async function randomXP(client, message) {
 
   if (message.channel.type == "dm" || message.channel.id == "529031030636806144" || message.channel.id == "527501700307746817") return;
   if (Math.floor(Math.random() * 100) < 90) return;
@@ -39,24 +39,12 @@ module.exports.randomXP = (client, message) => {
 
 }
 
-module.exports.kasaAc = async (message, kasa) => {
+async function kasaAc (message, kasa) {
   let randomItem = items.kasalar[kasa].items[Math.floor(Math.random() * items.kasalar[kasa].items.length)];
   let kasaEmbed = new Discord.RichEmbed().setAuthor(message.author.tag, message.author.avatarURL).setTimestamp().setDescription("İçinden:\n**" + randomItem.toUpperCase() + "**\n çıktı!").setColor(0xffff00).setTitle(`${message.author.tag} kullanıcısı ${kasa} kasasını açtı!`);
   schemas.userPoints.findOne({userID: message.author.id}, (err, user) => {
     user.points -= items.kasalar[kasa].price;
-    let gave = false;
-    user.inv.map(element => {
-      if(element.split(" ").slice(1).join(" ") == randomItem) {
-        user.inv.push(`${parseInt(element.split(" ")[0]) + 1} ${randomItem}`)
-        user.inv.splice(user.inv.indexOf(element), 1);
-        gave = true;
-        user.save();
-      }
-    })
-    if (!gave) {
-      user.inv.push(`1 ${randomItem}`)
-      user.save();
-    }
+    addItem(message.author, randomItem, 1);
   })
   message.channel.send("Kasa açılıyor...").then(msg => {
     // for (let sure = 3; sure > 0; sure--) {
@@ -68,4 +56,72 @@ module.exports.kasaAc = async (message, kasa) => {
     setTimeout(() => {msg.edit(kasaEmbed)}, 3000);
     
   })
+}
+
+
+async function checkItem (member, item, quantity) {
+  let user = await schemas.userPoints.findOne({userID: member.id});
+  if (!user) return undefined;
+  let item_situation = false;
+  await user.inv.map(items => {
+    let element = items.split(" ");
+    if (element[1] == item && parseInt(element[0]) >= quantity) {
+      item_situation = true;
+    }
+  })
+  return item_situation;
+}
+
+async function addItem (member, item, quantity) {
+  let user = await schemas.userPoints.findOne({ userID: member.id })
+  if (!user) return undefined;
+  let gave = false;
+  await user.inv.map(element => {
+    if (element.split(" ").slice(1).join(" ") == item) {
+      user.inv.push(`${parseInt(element.split(" ")[0]) + quantity} ${item}`)
+      user.inv.splice(user.inv.indexOf(element), 1);
+      gave = true;
+    }
+  })
+  if (!gave) {
+    user.inv.push(`${quantity} ${item}`)
+    gave = true
+  }
+  user.save();
+  return gave;
+}
+
+async function removeItem (member, item, quantity) {
+  let user = await schemas.userPoints.findOne({ userID: member.id })
+  if (!user) return undefined;
+  let removed = false;
+  await user.inv.map(items => {
+    let element = items.split(" ");
+    if (element[1] == item) {
+      if (parseInt(element[0]) >= quantity) {
+        if ((parseInt(element[0]) - quantity ) == 0) {
+          user.inv.splice(user.inv.indexOf(items), 1);
+          removed = true;
+        } else if ((parseInt(element[0]) - quantity) >  0){
+          user.inv.splice(user.inv.indexOf(items), 1);
+          user.inv.push(`${parseInt(element[0]) - quantity} ${element.slice(1).join(" ")}`);
+          removed = true;
+        } else {
+          return false;
+        }
+      }
+    }
+  })
+  user.save();
+  return removed;
+}
+
+
+module.exports = {
+  checkItem,
+  addItem,
+  removeItem,
+  getMember,
+  kasaAc,
+  randomXP
 }

@@ -7,6 +7,7 @@
     "discord.js": "^11.4.2",
     "mongoose": "^5.4.1",
     "ms": "^2.1.1",
+    "nodemon": "^1.18.9",
     "table": "^5.2.1"
   },
   "devDependencies": {},

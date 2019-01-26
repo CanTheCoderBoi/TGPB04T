@@ -6,4 +6,13 @@ const userPoints = mongoose.Schema({
     inv: {type: Array, default: []}
 })
 
+const sellSchema = mongoose.Schema({
+    userID: String,
+    product: String,
+    points: Number,
+    asking: {type: String, default: undefined},
+    messageID: String,
+})
+
 module.exports.userPoints = mongoose.model("points", userPoints);
+module.exports.sales = mongoose.model("sales", sellSchema);
