@@ -1,0 +1,28 @@
+{
+    "kutular": {
+        "standart": {
+            "items": ["regular şeması", "regular şeması", "regular şeması", "regular şeması", "regular şeması", "veteran şeması", "veteran şeması", "regular şeması", "veteran şeması", "regular şeması"],
+            "price": 15
+        },
+        "b": {
+            "items": ["veteran şeması", "regular şeması", "veteran şeması", "regular şeması", "regular şeması", "veteran şeması", "veteran şeması", "regular şeması", "veteran şeması", "specialist şeması"],
+            "price": 45
+        },
+        "a": {
+            "items": ["veteran şeması", "specialist şeması", "veteran şeması", "regular şeması", "veteran şeması", "veteran şeması", "regular şeması", "specialist şeması", "veteran şeması", "specialist şeması"],
+            "price": 75
+        },
+        "s": {
+            "items": ["proficient şeması", "veteran şeması", "veteran şeması", "specialist şeması", "veteran şeması", "proficient şeması", "veteran şeması", "regular şeması", "veteran şeması", "specialist şeması"],
+            "price": 125
+        }
+        
+    },
+    "crafting": {
+        "regular": 5,
+        "veteran": 10,
+        "specialist": 10,
+        "proficient": 10
+
+    }
+}
