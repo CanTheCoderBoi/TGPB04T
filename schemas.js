@@ -9,6 +9,7 @@ const userPoints = mongoose.Schema({
 const sellSchema = mongoose.Schema({
     userID: String,
     product: String,
+    quantity: Number,
     points: Number,
     asking: {type: String, default: undefined},
     messageID: String,

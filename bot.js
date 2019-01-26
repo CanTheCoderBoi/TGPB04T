@@ -20,7 +20,7 @@ client.on("message", async (message) => {
     if (message.author.bot) return;
     shortcuts.randomXP(client, message);
     if (!message.content.startsWith(pref)) return;
-    if (!process.env.TOKEN && message.author.id != "316641074967871500") return message.channel.send("Bakımdayım!")
+    // if (!process.env.TOKEN && message.author.id != "316641074967871500") return message.channel.send("Bakımdayım!")
     const args = message.content.slice(pref.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
     let commandFile = require(`./cmds/${command}.js`);

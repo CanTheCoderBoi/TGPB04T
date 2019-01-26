@@ -13,7 +13,7 @@ module.exports.run = async (client, message, args) => {
     let msg = await message.guild.channels.get("538717078958637056").send("Yeni Satış!");
     let saleEmbed = new Discord.RichEmbed()
         .setAuthor(message.author.tag, message.author.avatarURL)
-        .addField("Satılık:", item, 1)
+        .addField("Satılık:", `${args[3]} tane ${item}`, 1)
         .addBlankField(1)
         .addField("Karşılık:", `${args[3]}<:tgpcoin:530810516629618718>`,1)
         .addField("ID", msg.id)
@@ -23,6 +23,7 @@ module.exports.run = async (client, message, args) => {
     let newSale = new schemas.sales({
         userID: message.author.id,
         product: item,
+        quantity: parseInt(args[2]),
         points: parseInt(args[3]),
         messageID: msg.id,
     })
