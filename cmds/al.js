@@ -12,9 +12,9 @@ module.exports.run = (client, message, args) => {
             return message.channel.send("Üzgünüm ama yeterli miktarda puanınız bulunmamaktadır.")
         } else {
             let item = args.join(" ").toLowerCase().toString();
-            if (!items.kutular[item]) return message.reply("Üzgünüm ama böyle bir kasa bulunmamaktadır.");
-            if (user.points < items.kutular[item].price) return message.channel.send("Üzgünüm ama yeterli miktarda puanınız bulunmamaktadır.");
-            user.points -= items.kutular[item].price;
+            if (!items.kasalar[item]) return message.reply("Üzgünüm ama böyle bir kasa bulunmamaktadır.");
+            if (user.points < items.kasalar[item].price) return message.channel.send("Üzgünüm ama yeterli miktarda puanınız bulunmamaktadır.");
+            user.points -= items.kasalar[item].price;
             shortcuts.kasaAc(message, item);
 
         }

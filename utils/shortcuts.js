@@ -39,16 +39,17 @@ module.exports.randomXP = (client, message) => {
 
 }
 
-module.exports.kasaAc = (message, kasa) => {
+module.exports.kasaAc = async (message, kasa) => {
   let randomItem = items.kasalar[kasa].items[Math.floor(Math.random() * items.kasalar[kasa].items.length)];
-  let kasaEmbed = new Discord.RichEmbed().setAuthor(message.author.tag, message.author.avatarURL).setTimestamp().setDescription("İçinden:\n" + randomItem + "\n çıktı!").setColor(0x0000ff).setTitle(`${message.author.tag} kullanıcısı ${kasa} kasasını açtı!`);
-  message.channel.send("Kasa açılıyor... **3**").then(msg => {
-    for (let sure = 3; sure > 0; sure--) {
-      setTimeout(() => {
-        msg.edit(`Kasa açılıyor... **${sure}**`)
-      }, timeout);
+  let kasaEmbed = new Discord.RichEmbed().setAuthor(message.author.tag, message.author.avatarURL).setTimestamp().setDescription("İçinden:\n**" + randomItem.toUpperCase() + "**\n çıktı!").setColor(0xffff00).setTitle(`${message.author.tag} kullanıcısı ${kasa} kasasını açtı!`);
+  message.channel.send("Kasa açılıyor...").then(msg => {
+    // for (let sure = 3; sure > 0; sure--) {
+    //   setTimeout(() => {
+    //     msg.edit(`Kasa açılıyor... **${sure}**`)
+    //   }, 1000);
       
-    }
-    msg.edit(kasaEmbed);
+    // }
+    setTimeout(() => {msg.edit(kasaEmbed)}, 3000);
+    
   })
 }

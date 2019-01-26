@@ -29,4 +29,4 @@ client.on("message", async (message) => {
 })
 
 client.login(process.env.TOKEN || require("./config.json").TOKEN);
-mongoose.connect(process.env.URI, { useNewUrlParser: true })
+mongoose.connect(process.env.URI || require("./config.json").URI, { useNewUrlParser: true })
