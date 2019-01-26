@@ -16,5 +16,6 @@ module.exports.run = async (client, message, args) => {
     await Ouser.save()
     shortcuts.removeItem(client.users.get(advert.userID), advert.product.split(" ")[0], advert.quantity);
     shortcuts.addItem(message.author, advert.product.split(" ")[0], advert.quantity);
+    advert.remove();
     message.reply(`İşlem Başarılı! ${advert.points}<:tgpcoin:530810516629618718> karşılığında ${advert.quantity} tane ${advert.product} aldın!`);
 }
