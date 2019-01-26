@@ -4,7 +4,6 @@ const schemas = require("../schemas.js");
 const items = require("../items.json");
 const shortcuts = require("../utils/shortcuts.js")
 module.exports.run = (client, message, args) => {
-    if (!client.owners.includes(message.author.id)) return;
     schemas.userPoints.findOne({ userID: message.author.id }).then(user => {
         if (!user) {
             let newUser = new schemas.userPoints({ userID: message.author.id })
