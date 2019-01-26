@@ -4,7 +4,7 @@ const schemas = require("../schemas.js");
 const items = require("../items.json");
 const shortcuts = require("../utils/shortcuts.js")
 module.exports.run = async (client, message, args) => {
-    schemas.userPoints.findOne({ userID: message.author.id }).then(user => {
+    schemas.userPoints.findOne({ userID: message.author.id }).then(async user => {
         if (!user) {
             let newUser = new schemas.userPoints({ userID: message.author.id })
             newUser.save()
