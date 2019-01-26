@@ -74,17 +74,18 @@ async function checkItem (member, item, quantity) {
 
 async function addItem (member, item, quantity) {
   let user = await schemas.userPoints.findOne({ userID: member.id })
+  let itemA = item + " şeması"
   if (!user) return undefined;
   let gave = false;
   await user.inv.map(element => {
-    if (element.split(" ").slice(1).join(" ") == item) {
-      user.inv.push(`${parseInt(element.split(" ")[0]) + quantity} ${item}`)
+    if (element.split(" ").slice(1).join(" ") == itemA) {
+      user.inv.push(`${parseInt(element.split(" ")[0]) + quantity} ${itemA}`)
       user.inv.splice(user.inv.indexOf(element), 1);
       gave = true;
     }
   })
   if (!gave) {
-    user.inv.push(`${quantity} ${item}`)
+    user.inv.push(`${quantity} ${itemA}`)
     gave = true
   }
   user.save();
