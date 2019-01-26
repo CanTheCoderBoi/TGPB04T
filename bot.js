@@ -28,5 +28,5 @@ client.on("message", async (message) => {
     return commandFile.run(client, message, args);
 })
 
-client.login(process.env.TOKEN)
+client.login(process.env.TOKEN || require("./config.json").TOKEN);
 mongoose.connect(process.env.URI, { useNewUrlParser: true })
