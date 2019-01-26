@@ -10,7 +10,7 @@ module.exports.run = async (client, message, args) => {
     let user = await schemas.userPoints.findOne({userID: message.author.id});
     if (user.points < advert.points) return message.reply("Satın alımı gerçekleştirmek için yeterli puanınız bulunmamaktadır.").then(msg => { msg.delete(10000) });
     let Ouser = await schemas.userPoints.findOne({ userID: advert.userID });
-    message.guild.channels.get("538717078958637056").fetchMessage(advert.messageID).delete()
+    message.guild.channels.get("538717078958637056").fetchMessage(advert.messageID).then(msg => {msg.delete()})
     user.points -= advert.points;
     Ouser.points += advert.points;
     await Ouser.save()
