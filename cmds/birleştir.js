@@ -22,14 +22,18 @@ module.exports.run = async (client, message, args) => {
                         user.inv.splice(user.inv.indexOf(item), 1);
                         crafted = true;
                     } else {
-                        user.inv[item] = `${parseInt(element[0]) - items.crafting[role]} ${element.slice(1).join(" ")}`
+                        user.inv.splice(user.inv.indexOf(item), 1);
+                        user.inv.push(`${parseInt(element[0]) - items.crafting[role]} ${element.slice(1).join(" ")}`);
                         crafted = true;
                     }
                 }
             }       
         })
-        
-        
-        
+        if (!crafted) return message.reply("Envanterinizde bu şemadan yeteri kadar bulunmamaktadır.");
+        if (crafted) {
+            user.save();
+            message.member.addRole(message.guild.roles.find(`name`, role));
+            return message.channel.send(`Birleştirme başarılı! \`${role}\` rolünü ${items.crafting[role]} şema karşılığında birleştirdin!`)
+        }
     })
 }
