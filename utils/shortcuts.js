@@ -42,6 +42,22 @@ module.exports.randomXP = (client, message) => {
 module.exports.kasaAc = async (message, kasa) => {
   let randomItem = items.kasalar[kasa].items[Math.floor(Math.random() * items.kasalar[kasa].items.length)];
   let kasaEmbed = new Discord.RichEmbed().setAuthor(message.author.tag, message.author.avatarURL).setTimestamp().setDescription("İçinden:\n**" + randomItem.toUpperCase() + "**\n çıktı!").setColor(0xffff00).setTitle(`${message.author.tag} kullanıcısı ${kasa} kasasını açtı!`);
+  schemas.userPoints.findOne({userID: message.author.id}, (err, user) => {
+    user.points -= items.kasalar[kasa].price;
+    let gave = false;
+    user.inv.map(element => {
+      if(element.split(" ").slice(1).join(" ") == randomItem) {
+        user.inv.push(`${parseInt(element.split(" ")[0]) + 1} ${randomItem}`)
+        user.inv.splice(user.inv.indexOf(element), 1);
+        gave = true;
+        user.save();
+      }
+    })
+    if (!gave) {
+      user.inv.push(`1 ${randomItem}`)
+      user.save();
+    }
+  })
   message.channel.send("Kasa açılıyor...").then(msg => {
     // for (let sure = 3; sure > 0; sure--) {
     //   setTimeout(() => {
