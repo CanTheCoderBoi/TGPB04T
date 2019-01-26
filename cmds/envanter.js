@@ -8,6 +8,7 @@ module.exports.run = async (client, message, args) => {
     let invEmbed = new Discord.RichEmbed()
     .setTitle(`${message.author.tag} Envanterin:`)
     .setDescription(`\`\`\`${user.inv.join("\n").toUpperCase()}\`\`\``)
+    .setThumbnail(message.author.avatarURL);
     .setColor(0x4fC312)
     .setTimestamp()
     message.channel.send(invEmbed);
