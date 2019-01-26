@@ -4,7 +4,7 @@ const items = require("../items.json")
 const ms = require("ms");
 let lastPointWinners = [];
 
-getMember = (message, args) => {
+module.exports.getMember = (message, args) => {
   let member = message.mentions.members.first();
   if (!member) {
     let id = args[0];
@@ -14,7 +14,7 @@ getMember = (message, args) => {
   return member;
 }
 
-randomXP = (client, message) => {
+module.exports.randomXP = (client, message) => {
 
   if (message.channel.type == "dm" || message.channel.id == "529031030636806144" || message.channel.id == "527501700307746817") return;
   if (Math.floor(Math.random() * 100) < 90) return;
@@ -39,7 +39,7 @@ randomXP = (client, message) => {
 
 }
 
-kasaAc = (message, kasa) => {
+module.exports.kasaAc = (message, kasa) => {
   let randomItem = items.kasalar[kasa].items[Math.floor(Math.random() * items.kasalar[kasa].items.length)];
   let kasaEmbed = new Discord.RichEmbed().setAuthor(message.author.tag, message.author.avatarURL).setTimestamp().setDescription("İçinden:\n" + randomItem + "\n çıktı!").setColor(0x0000ff).setTitle(`${message.author.tag} kullanıcısı ${kasa} kasasını açtı!`);
   message.channel.send("Kasa açılıyor... **3**").then(msg => {
@@ -51,10 +51,4 @@ kasaAc = (message, kasa) => {
     }
     msg.edit(kasaEmbed);
   })
-}
-
-module.exports = {
-  randomXP,
-  kasaAc,
-  getMember
 }
