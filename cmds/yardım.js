@@ -7,7 +7,7 @@ module.exports.run = (client, message, args) => {
         sembed.setAuthor(message.author.tag, message.author.avatarURL);
         sembed.addField("[1] Moderasyon", " Moderatör+ Role sahip olan kişiler görüntüleyebilir. Kullanım : `?yardım moderasyon` ya da `?yardım 1`")
         sembed.addField("[2] Market", "Sunucumuzdaki teşekkür ve market sistemi hakkında bilgi verir. Kullanım : `?yardım market` ya da `?yardım 2`")
-        sembed.addField("[3] Genel", "Sunucudaki genel olarak kullanılabilen komutları gösterir. Kullanım : `?yardım genel` ya da `?yardım 3`")
+        sembed.addField("[3] Genel", " Sunucudaki genel olarak kullanılabilen komutları gösterir. Kullanım : `?yardım genel` ya da `?yardım 3`")
         sembed.addField("[4] Kodlama", " Kodlama ile ilgili olan komutları gösterir. Kullanım : `?yardım kodlama` ya da `?yardım 4`")
         sembed.setColor(0x8000ff)
         message.channel.send(sembed)
