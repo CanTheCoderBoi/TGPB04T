@@ -29,10 +29,7 @@ module.exports.run = (client, message, args) => {
     if (helparg.toLowerCase() === "market" || helparg == 2) {
         let markembed = new discord.RichEmbed();
         markembed.setAuthor(message.author.tag, message.author.avatarURL);
-        markembed.addField("Puan kontrol", "`?puan` komudu ile sahip olduğunuz <:tgpcoin:530810516629618718> leri görüntüleyebilirsiniz.")
-        markembed.addField("Market", "Sahip olduğunuz puanları harcamak için güzel bir mağazamız var. `?market` komudu ile bu mağazaya göz atın!")
-        markembed.addField("Rol satın alma", "Markette bulunan rollerden birini almak için `?al <rol adı>`. Örnek kullanım: `?al Proficient`")
-        markembed.setFooter("Komutlarda sorun olursa veya daha detaylı bilgi için yetkililere ulaşınız.")
+        markembed.addField("Yapım aşamasında", "Market bakımda.")   
         markembed.setColor(0x8000ff)
         message.channel.send(markembed)
     }
