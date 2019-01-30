@@ -29,5 +29,15 @@ client.on("message", async (message) => {
     return commandFile.run(client, message, args);
 })
 
+client.on("messageUpdate", async(oldMessage, newMessage) => {
+
+if(oldMessage.content === newMessage.content) return;
+
+client.channels.get("540201429248245789").send(`📝${oldMessage.author.tag} (\`${oldMessage.author.id}\`)kullanıcısı tarafından <#${oldMessage.channel.id}> kanalında mesaj editlendi. \n Ö: *${oldMessage}* \n S: *${newMessage}*`)
+
+})
+
+
+
 client.login(process.env.TOKEN || require("./config.json").TOKEN);
 mongoose.connect(process.env.URI || require("./config.json").URI, { useNewUrlParser: true })
