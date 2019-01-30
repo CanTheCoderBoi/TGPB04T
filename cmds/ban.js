@@ -18,7 +18,7 @@ module.exports.run = (client, message, args) => {
         .addField('Ban sebebi', sebep)      
 
 
-    message.channel.send(`${hedef.user.username} adlı kullanıcı sunucudan yasaklandı.`);
+    message.channel.send(`<a:jsok:531920639968280605> ${hedef.user.username} adlı kullanıcı sunucudan yasaklandı.(\`${sebep}\`)`);
 
     hedef.ban(sebep);
 
