@@ -37,6 +37,10 @@ client.channels.get("540134798946205696").send(`📝${oldMessage.author.tag} (\`
 
 })
 
+client.on("messageDelete" , async("message") =>{
+client channels get("540134798946205696").send(`🗑 ${message.author.tag} (\`{message.author.id}\`) kullanıcısı tarafından <#${message.channel.id}>  kanalında mesaj silindi: \n **${message}** `)
+})
+
 
 
 client.login(process.env.TOKEN || require("./config.json").TOKEN);
