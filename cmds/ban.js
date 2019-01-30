@@ -4,7 +4,7 @@ module.exports.run = (client, message, args) => {
     let sebep = args.slice(1).join(' ');
     if (!message.member.roles.has('523179624772010004')) return message.channel.send(':lock: Bu komudu kullanmak için yetkiniz yok.');
     if (!hedef) return message.channel.send("Komut kullanımında eksik argüman girildi. (`user:<user>| [sebep...]`)");
-    if(hedef.member.roles.has("523179624772010004") return message.channel.send ("Bu kişiyi yasaklayamazsınız.")
+    
 
     
 
