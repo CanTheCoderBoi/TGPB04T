@@ -1,6 +1,5 @@
 # Türk Geliştiriciler Platformu'nun özel Discord Botu
 
-### ÖNEMLİ: BU BOTUN LİSANSI BULUNMAKTADIR VE İZİNSİZ KULLANIMI YASAKTIR.
-
+### ÖNEMLİ: Lütfen Lisans sözleşmesini okumadan geçmeyiniz.
 ## Sunucu Davet linki :
 https://discord.gg/tRZuCYj
