@@ -33,7 +33,7 @@ client.on("messageUpdate", async(oldMessage, newMessage) => {
 
 if(oldMessage.content === newMessage.content) return;
 
-client.channels.get("540134798946205696").send(`📝${oldMessage.author.tag} (\`${oldMessage.author.id}\`)kullanıcısı tarafından <#${oldMessage.channel.id}> kanalında mesaj editlendi. \n **Ö:** *${oldMessage}* \n **S:** *${newMessage}*`)
+client.channels.get("540134798946205696").send(`📝${oldMessage.author.tag} (\`${oldMessage.author.id}\`)kullanıcısı tarafından <#${oldMessage.channel.id}> kanalında mesaj editlendi. \n **Ö:** *${oldMessage}* \n **S:** *${newMessage}* `)
 
 })
 
