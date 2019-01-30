@@ -1,18 +1,39 @@
 const discord = require("discord.js");
 module.exports.run = (client, message, args) => {
+    let hedef = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    let sebep = args.slice(1).join(' ');
+    if (!message.member.roles.has('523179624772010004')) return message.channel.send(':lock: Bu komudu kullanmak için yetkiniz yok.');
+    if (!hedef) return message.reply("Komut kullanımı yanlış. (`user:<user>| [sebep...]`)");
+    
 
-let bankisi = message.mentions.members.first()
-if(!message.member.roles.has("523179624772010004")) return;
-if(bankisi.roles.has("523179624772010004") return message.reply(" Bu kişiyi yasaklayamazsınız.")
+    
 
-if(!bankisi) return message.channel.send("Komut kullanımı yanlış (`<kullanıcı>| [Sebep:...]`)");
-let bansebep = args.slice(1).join(" "))
+    let bembed = new discord.RichEmbed()
 
-message.channel.send("Başarıyla **" + bankisi.user.tag + "** (`"+bankisi.id+"`) kullanıcısını sunucudan yasakladım." )
-bankisi.ban(bansebep + "by : " +message.author.tag)
-client.channels.get("534411959723098122").send("**" + bankisi.user.tag + "**" + " (`" + bankisi.id + "`)" + " kullanıcısı , **" + message.author.tag + "** (`" + message.author.id + "`) tarafından sunucudan yasaklandı. Yasaklama sebebi : (`" +bansebep+ "`)" )
-client.channels.get("529042995769507840").send("**" + bankisi.user.tag + "**" + " (`" + bankisi.id + "`)" + " kullanıcısı , **" + message.author.tag + "** (`" + message.author.id + "`) tarafından sunucudan yasaklandı. Yasaklama sebebi : (`" +bansebep+ "`)" )
+        .setColor('RANDOM')
 
+        .setThumbnail(hedef.user.avatarURL)
+
+        .addField('Banlanan üye', `${hedef.user.username} (${hedef.user.id})`)
+
+        .addField('Banlayan moderatör', `${message.author.username} (${message.author.id})`)
+
+        .addField('Banlama zamanı', message.createdAt)
+
+        .addField('Komudun kullanıldığı kanal', message.channel)
+
+        .addField('Ban sebebi', sebep)
+        .setFooter('Banlanan üye hakkında', hedef.user.displayAvatarURL);
+
+
+    message.channel.send(`${hedef.user.username} adlı kullanıcı sunucudan yasaklandı.`);
+
+    hedef.ban(sebep);
+
+    client.channels.get("534411959723098122").send(bembed)
+
+  
+    
 }
 
 module.exports.info = {
