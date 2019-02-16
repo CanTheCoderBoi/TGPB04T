@@ -1,7 +1,5 @@
 const discord = require("discord.js");
 module.exports.run = (client, message, args) => {
-
-
    message.delete()
    if (!message.member.roles.has("523180483639771137")) return message.reply("Bunu kullanmak için yetkiniz yok")
    var dtext = args.join(' ')

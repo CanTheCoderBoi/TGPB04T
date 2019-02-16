@@ -7,7 +7,7 @@ module.exports.run = (client, message, args) => {
         sembed.setAuthor(message.author.tag, message.author.avatarURL);
         sembed.addField("[1] Moderasyon", " Moderatör+ Role sahip olan kişiler görüntüleyebilir. Kullanım : `?yardım moderasyon` ya da `?yardım 1`")
         sembed.addField("[2] Market", "Sunucumuzdaki teşekkür ve market sistemi hakkında bilgi verir. Kullanım : `?yardım market` ya da `?yardım 2`")
-        sembed.addField("[3] Genel", "Sunucudaki genel olarak kullanılabilen komutları gösterir. Kullanım : `?yardım genel` ya da `?yardım 3`")
+        sembed.addField("[3] Genel", " Sunucudaki genel olarak kullanılabilen komutları gösterir. Kullanım : `?yardım genel` ya da `?yardım 3`")
         sembed.addField("[4] Kodlama", " Kodlama ile ilgili olan komutları gösterir. Kullanım : `?yardım kodlama` ya da `?yardım 4`")
         sembed.setColor(0x8000ff)
         message.channel.send(sembed)
@@ -29,10 +29,7 @@ module.exports.run = (client, message, args) => {
     if (helparg.toLowerCase() === "market" || helparg == 2) {
         let markembed = new discord.RichEmbed();
         markembed.setAuthor(message.author.tag, message.author.avatarURL);
-        markembed.addField("Puan kontrol", "`?puan` komudu ile sahip olduğunuz <:tgpcoin:530810516629618718> leri görüntüleyebilirsiniz.")
-        markembed.addField("Market", "Sahip olduğunuz puanları harcamak için güzel bir mağazamız var. `?market` komudu ile bu mağazaya göz atın!")
-        markembed.addField("Rol satın alma", "Markette bulunan rollerden birini almak için `?al <rol adı>`. Örnek kullanım: `?al Proficient`")
-        markembed.setFooter("Komutlarda sorun olursa veya daha detaylı bilgi için yetkililere ulaşınız.")
+        markembed.addField("Yapım aşamasında", "Market bakımda.")   
         markembed.setColor(0x8000ff)
         message.channel.send(markembed)
     }
