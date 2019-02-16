@@ -2,7 +2,7 @@ const discord = require("discord.js");
 module.exports.run = (client, message, args) => {
     let hedef = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     let sebep = args.slice(1).join(' ');
-    if (!message.member.roles.has('523179624772010004')) return message.channel.send('🔒 Bu komudu kullanmak için yetkiniz yok.');
+    if (!message.member.roles.has('523179624772010004')) return message.channel.send('🔒 Bu komudu kullanmak için yetkiniz yok. ');
     if (!hedef) return message.channel.send("Komut kullanımında eksik argüman girildi. (`user:<user>| [sebep...]`)");
     if(hedef.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Seçilen üye yasaklanamaz.")
 
