@@ -4,45 +4,28 @@ module.exports.run = (client, message, args) => {
     let basvuruyer = args[0]
     let basvurumesaj = args.slice(1).join(" ")
 
-    if (!basvuruyer) return message.reply("Hangi dalda başvuracağınızı seçmediniz. Kullanım : ?başvur içerik/partner/geliştirici <başvuru mesaj> ")
+    if (!basvuruyer || !["partner", "geliştirici", "içerik"].includes(basvuruyer.toLowerCase())) return message.reply("Hangi dalda başvuracağınızı seçmediniz. Kullanım : ?başvur içerik/partner/geliştirici <başvuru mesaj> ")
     if (!basvurumesaj) return message.reply("Başvuru mesajınızı girmediniz. **Kullanım : ?başvur içerik/partner/geliştirici <başvuru mesaj>**")
-
-    if (basvuruyer === "partner") {
-        message.delete()
-        message.reply("Başvurunuz eklendi. Yakın zamanda size özelden mesaj atacağım.")
-        let partnerembed = new discord.RichEmbed();
-        partnerembed.setThumbnail(message.author.avatarURL)
-        partnerembed.setAuthor(message.author.tag, message.author.avatarURL);
-        partnerembed.setTitle("Partner kanalında yeni bir başvuru eklendi.")
-        partnerembed.setDescription(basvurumesaj)
-        partnerembed.setTimestamp()
-        client.channels.get("531395962904641538").send(partnerembed)
+    message.delete()
+    message.reply("Başvurunuz eklendi. Yakın zamanda size özelden mesaj atacağım.")
+    let embed = new discord.RichEmbed()
+        .setThumbnail(message.author.avatarURL)
+        .setAuthor(message.author.tag, message.author.avatarURL)
+        .setDescription(basvurumesaj)
+        .setFooter(basvuruyer.toLowerCase())
+        .setTimestamp();
+    switch (basvuruyer.toLowerCase()) {
+        case "partner":
+            embed.setTitle("Partner Başvurusu")
+            break;
+        case "içerik":
+            embed.setTitle("İçerik Üretici Başvurusu")
+            break;
+        case "geliştirici":
+            embed.setTitle("Geliştirici Başvurusu")
+            break;
     }
-
-    if (basvuruyer === "içerik") {
-        message.delete()
-        message.reply("Başvurunuz eklendi. Yakın zamanda size özelden mesaj atacağım.")
-        let icerikembed = new discord.RichEmbed();
-        icerikembed.setThumbnail(message.author.avatarURL)
-        icerikembed.setAuthor(message.author.tag, message.author.avatarURL);
-        icerikembed.setTitle("Partner kanalında yeni bir başvuru eklendi.")
-        icerikembed.setDescription(basvurumesaj)
-        icerikembed.setTimestamp()
-        client.channels.get("531395962904641538").send(icerikembed)
-    }
-
-    if (basvuruyer === "geliştirici") {
-        message.delete()
-        message.reply("Başvurunuz eklendi. Yakın zamanda size özelden mesaj atacağım.")
-        let gelistiriciembed = new discord.RichEmbed();
-        gelistiriciembed.setThumbnail(message.author.avatarURL)
-        gelistiriciembed.setAuthor(message.author.tag, message.author.avatarURL);
-        gelistiriciembed.setTitle("Geliştirici kanalında yeni bir başvuru eklendi.")
-        gelistiriciembed.setDescription(basvurumesaj)
-        gelistiriciembed.setTimestamp()
-        client.channels.get("531395962904641538").send(gelistiriciembed)
-    }
-
+    client.channels.get("531395962904641538").send(embed)
 
 }
 
