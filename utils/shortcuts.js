@@ -74,7 +74,7 @@ async function checkItem (member, item, quantity) {
 
 async function addItem (member, item, quantity) {
   let user = await schemas.userPoints.findOne({ userID: member.id })
-  let itemA = item + " şeması"
+  let itemA = item
   if (!user) return undefined;
   let gave = false;
   await user.inv.map(element => {

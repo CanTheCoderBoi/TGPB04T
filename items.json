@@ -8,11 +8,11 @@
             "items": ["veteran şeması", "regular şeması", "veteran şeması", "regular şeması", "regular şeması", "veteran şeması", "veteran şeması", "regular şeması", "veteran şeması", "specialist şeması"],
             "price": 45
         },
-        "a": {
+        "snadir": {
             "items": ["veteran şeması", "specialist şeması", "veteran şeması", "regular şeması", "veteran şeması", "veteran şeması", "regular şeması", "specialist şeması", "veteran şeması", "specialist şeması"],
             "price": 75
         },
-        "s": {
+        "inanılmaz": {
             "items": ["proficient şeması", "veteran şeması", "veteran şeması", "specialist şeması", "veteran şeması", "proficient şeması", "veteran şeması", "regular şeması", "veteran şeması", "specialist şeması"],
             "price": 125
         }
