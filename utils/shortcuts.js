@@ -21,6 +21,7 @@ async function randomXP(client, message) {
   if (lastPointWinners.includes(message.author.id)) return;
   let randomAmount = Math.floor(Math.random() * 2) + 1;
   schemas.userPoints.findOne({ userID: message.author.id }, (err, res) => {
+    if (!res) return;
     res.points += randomAmount;
     let pointEmbed = new Discord.RichEmbed()
       .setAuthor(message.author.tag, message.author.avatarURL)
