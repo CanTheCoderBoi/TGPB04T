@@ -10,11 +10,6 @@ client.on("ready", () => {
     
 })
 
-client.on("guildMemberAdd", async member => {
-    client.channels.get("549623467729747995").send(`<a:selam:547520182768238601> Selam ${member.tag}, sunucuya hoş geldin!`)
-    let role = client.guilds.get("403879632656662528").roles.get("523183261518921728");
-    member.addRole(role);
-})
 
 client.on("message", async (message) => {
     if (message.author.bot) return;
